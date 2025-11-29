@@ -9,29 +9,30 @@ public class Task3 {
             FileInputStream file = new FileInputStream("BookStore.dat");
             ObjectInputStream reader = new ObjectInputStream(file);
 
-            Book[] books = new Book[5];
+            Book[] books = new Book[6];
 
             books[0] = (Book) reader.readObject();
             books[1] = (Book) reader.readObject(); 
             books[2] = (Book) reader.readObject();
             books[3] = (Book) reader.readObject();
             books[4] = (Book) reader.readObject();
+            books[5] = (Book) reader.readObject();
 
             System.out.print("Enter the Book Name:");
             String bookName = in.next();
-            boolean found = true;
+            boolean found = false;
 
-        while(found){
             for(int i = 0; i < books.length; i++){
                 if (books[i].getBook().equalsIgnoreCase(bookName)) {
                     System.out.println("Book Found!");
                     System.out.println(books[i]);
-                    found = false;
+                    found = true;
                     break;
-                } else {
-                    System.out.println("Book Not Found!");
                 }
             }
+
+        if(!found){
+            System.out.println("Book Not Found!");
         }
 
         } catch (Exception e) {

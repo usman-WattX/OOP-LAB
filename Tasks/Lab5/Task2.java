@@ -1,3 +1,49 @@
+class Person{
+    private String name;
+    private int age;
+    private Address ad;
+
+    public Person(){
+        name = "";
+        age = 0;
+        ad = new Address();
+    }
+
+    public Person(String n, int a, Address add){
+        name = n;
+        age = a;
+        ad = add;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String n) {
+        name = n;
+    }
+
+    public Address getAd() {
+        return ad;
+    }
+    public void setAd(Address add) {
+        ad = add;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int a) {
+        age = a;
+    }
+
+    public void display(){
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Address: ");
+        ad.display();
+    }
+}
+
 class Book{
     private String name;
     private String publisher;

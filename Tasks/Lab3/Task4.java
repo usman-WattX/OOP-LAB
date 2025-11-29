@@ -31,10 +31,6 @@ public int getSold(){
 
 }
 
-
-
-
-
 public class Task4 {
     public static void main(String[] args) {
         HotDogsStand h1 = new HotDogsStand(1, 36);
