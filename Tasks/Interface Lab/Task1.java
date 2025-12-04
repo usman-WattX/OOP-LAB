@@ -49,6 +49,7 @@ class Rectangle implements Shape{
         return area;
     }
 }
+
 public class Task1 {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[2];
@@ -61,9 +62,7 @@ public class Task1 {
                 System.out.println("Area of Circle is " + shapes[i].getArea());    
             }else{
                 System.out.println("Area of Rectangle is " + shapes[i].getArea());
-            }
-            
+            } 
         }
-        
     }
 }

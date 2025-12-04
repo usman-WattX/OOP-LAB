@@ -40,7 +40,7 @@ class NameCollection implements Enumeration{
 
 public class Task4 {
     public static void main(String[] args) {
-        String[] names = {"DD", "JJ", "KK", "LL"};
+        String[] names = {"Diddy", "JoJo", "KaKa", "Lilly"};
         NameCollection nc = new NameCollection(names);
         
         for(int i = 0; i < names.length; i++){

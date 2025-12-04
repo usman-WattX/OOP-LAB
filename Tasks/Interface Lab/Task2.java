@@ -21,18 +21,21 @@ class Invoice implements Payable{
     public void setPartNumber(String partNumber) {
         this.partNumber = partNumber;
     }
+
     public String getPartDescription() {
         return partDescription;
     }
     public void setPartDescription(String partDescription) {
         this.partDescription = partDescription;
     }
+
     public int getQuantity() {
         return quantity;
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
     public double getPricePerItem() {
         return pricePerItem;
     }
@@ -62,12 +65,14 @@ class Employee implements Payable{
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;
     }
@@ -91,7 +96,6 @@ class SalariedEmployee extends Employee{
     public double getWeekSalary() {
         return weekSalary;
     }
-
     public void setWeekSalary(double weekSalary) {
         this.weekSalary = weekSalary;
     }
@@ -105,12 +109,18 @@ public class Task2 {
     public static void main(String[] args) {
         Payable[] payables = new Payable[3];
 
-        payables[0] = new Invoice("56734785sfuidhwuiefh", "7845678fgsjdfg", 3, 3500.0);
+        payables[0] = new Invoice("45353SGH", "Clutch Plate", 3, 3500.0);
         payables[1] = new Employee("DD", "Sb", "0333-567-7878");
         payables[2] = new SalariedEmployee("DD", "Sb", "0333-567-7878", 60000.0);
 
         for(int i = 0; i < payables.length; i++){
-                System.out.println(payables[i].getPaymentAmount());
+            if(payables[i] instanceof Invoice){
+                System.out.println("Invoice: " + payables[i].getPaymentAmount());
+            }else if (payables[i] instanceof Employee) {
+                System.out.println("Employee: " + payables[i].getPaymentAmount());
+            }else{
+                System.out.println("Salaried Employee: " + payables[i].getPaymentAmount());
+            }
         }
     }
 }
