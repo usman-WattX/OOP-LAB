@@ -34,11 +34,10 @@ public class Task3 {
         if(!found){
             System.out.println("Book Not Found!");
         }
-
+        file.close();
+        in.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
-    }
-    
+    }   
 }

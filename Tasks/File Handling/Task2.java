@@ -3,7 +3,6 @@ import java.io.*;
 public class Task2 {
     public static void main(String[] args) {
         try {
-           
             FileInputStream filein = new FileInputStream("BookStore.dat");
             ObjectInputStream reader = new ObjectInputStream(filein);
             FileOutputStream file = new FileOutputStream("BookStore.dat", true);
@@ -23,9 +22,13 @@ public class Task2 {
 
             Person p = new Person("DD");
             Book b6 = new Book("Kid6", "CP Publisihers", p);
+
             writer.writeObject(b6);
+            System.out.println("New Book Added!");
+            
             b6 = (Book) reader.readObject();
             System.out.println(b6);
+
             filein.close();
             file.close();
         } catch (Exception e) {

@@ -1,7 +1,6 @@
 import java.io.*;
 
 class Append extends ObjectOutputStream{
-
     public Append(OutputStream out) throws IOException{
         super(out);
     }
@@ -25,7 +24,6 @@ class Person implements Serializable{
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -33,7 +31,6 @@ class Person implements Serializable{
     public String toString() {
         return name;
     }
-
 }
 
 class Book implements Serializable { 
@@ -54,20 +51,22 @@ class Book implements Serializable {
     public String getBook() {
         return book;
     }
+    public void setBook(String book) {
+        this.book = book;
+    }
+
     public Person getPerson() {
         return author;
     }
     public void setPerson(Person author) {
         this.author = author;
     }
+
     public String getPublisher() {
         return publisher;
     }
     public void setPublisher(String publisher) {
         this.publisher = publisher;
-    }
-    public void setBook(String book) {
-        this.book = book;
     }
 
     public String toString() {
@@ -79,27 +78,27 @@ class Book implements Serializable {
 public class Task1 {
     public static void main(String[] args) {
 
-
-        Person p = new Person("DD");
-        Book b1 = new Book("Kid1", "CP Publisihers", p);
-        Book b2 = new Book("Kid2", "CP Publisihers", p);
-        Book b3 = new Book("Kid3", "CP Publisihers", p);
-        Book b4 = new Book("Kid4", "CP Publisihers", p);
-        Book b5 = new Book("Kid5", "CP Publisihers", p);
-        
         try {
+            Person p = new Person("DD");
+            Book b1 = new Book("Kid1", "CP Publisihers", p);
+            Book b2 = new Book("Kid2", "CP Publisihers", p);
+            Book b3 = new Book("Kid3", "CP Publisihers", p);
+            Book b4 = new Book("Kid4", "CP Publisihers", p);
+            Book b5 = new Book("Kid5", "CP Publisihers", p);
+            
             FileOutputStream file = new FileOutputStream("BookStore.dat", true);
             ObjectOutputStream writer = new ObjectOutputStream(file);
+
             writer.writeObject(b1);
             writer.writeObject(b2);
             writer.writeObject(b3);    
             writer.writeObject(b4);
             writer.writeObject(b5);
+            
             System.out.println("Successfully Written!");
+            writer.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        
-    }
-    
+        } 
+    } 
 }
