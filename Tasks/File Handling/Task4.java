@@ -6,8 +6,8 @@ public class Task4 {
     static ArrayList<Account> accounts = new ArrayList<>();
     public static void main(String[] args) {
         LoadAccounts();
-
-        while (true) {
+        boolean exit = false;
+        while (!exit) {
             System.out.println("***ATM System***");
             System.out.println("1-Create Account");
             System.out.println("2-Deposit Money");
@@ -15,6 +15,7 @@ public class Task4 {
             System.out.println("4-Transfer Money");
             System.out.println("5-Inquiry Account Balance");
             System.out.println("0-Exit");
+            System.out.print("Enter Your Choice:");
             int choice = in.nextInt();
             in.nextLine();
 
@@ -36,6 +37,7 @@ public class Task4 {
                     break;
                 case 0:
                     System.out.println("Good Bye!");
+                    exit = true;
                     break;
                 default:
                     System.out.println("Invalid Choice!");
@@ -62,6 +64,7 @@ public class Task4 {
                 System.out.println("Accounted Created!");
             }
             WriteAccounts();
+            System.out.println();
             return;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -83,6 +86,7 @@ public class Task4 {
         }
         System.out.println("Deposited Successfully!");
         WriteAccounts();
+        System.out.println();
         return;
     }
 
@@ -105,6 +109,7 @@ public class Task4 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             WriteAccounts();
+            System.out.println();
             return;
         }
     }
@@ -137,6 +142,7 @@ public class Task4 {
         }      
         System.out.println("Money Transfer Successfully from Acc No. " + accNum + " to " + othAccNum + "!");
         WriteAccounts();
+        System.out.println();
         return;  
     }
 
@@ -150,6 +156,7 @@ public class Task4 {
                 break;
             }
         }
+        System.out.println();
         return;
     }
 
